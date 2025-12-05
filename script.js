@@ -1,64 +1,109 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-    // --- Expand/Collapse for Job Experience ---
-    const jobHeaders = document.querySelectorAll('.job-header.toggle-details');
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    jobHeaders.forEach(header => {
-        const details = header.nextElementSibling;
-        if (!details || !details.classList.contains('job-details')) return;
+  // Typewriter effect
+  const typewriterEls = document.querySelectorAll(".typewriter");
+  const typedSet = new WeakSet();
 
-        header.setAttribute('role', 'button');
-        header.setAttribute('aria-expanded', 'false');
-        header.setAttribute('tabindex', '0');
+  function typeText(el) {
+    if (!el || typedSet.has(el)) return;
+    const fullText = el.getAttribute("data-title") || "";
+    el.textContent = "";
+    typedSet.add(el);
 
-        const toggleDetails = () => {
-            const isHidden = details.classList.contains('hidden');
-            details.classList.toggle('hidden');
-            header.classList.toggle('active', !isHidden);
-            header.setAttribute('aria-expanded', !isHidden);
-            
-            if (!isHidden) {
-                details.style.maxHeight = null;
-            } else {
-                details.style.maxHeight = details.scrollHeight + "px";
-            }
-        };
-        
-        header.addEventListener('click', toggleDetails);
-        header.addEventListener('keydown', (event) => {
-             if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                toggleDetails();
-            }
+    if (prefersReducedMotion || fullText.length === 0) {
+      el.textContent = fullText;
+      el.classList.add("done");
+      return;
+    }
+
+    let idx = 0;
+    const interval = setInterval(() => {
+      el.textContent = fullText.slice(0, idx);
+      idx++;
+      if (idx > fullText.length) {
+        clearInterval(interval);
+        setTimeout(() => el.classList.add("done"), 200);
+      }
+    }, 45);
+  }
+
+  // Scroll-snapping journey and chapter activation
+  const chapters = document.querySelectorAll(".chapter");
+  const progressLinks = document.querySelectorAll(".progress-nav a");
+
+  if ("IntersectionObserver" in window) {
+    const chapterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const chapter = entry.target;
+            chapters.forEach((ch) => ch.classList.remove("active"));
+            chapter.classList.add("active");
+
+            // Activate matching progress nav
+            const id = chapter.getAttribute("id");
+            progressLinks.forEach((link) => {
+              const href = link.getAttribute("href");
+              if (href === `#${id}`) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            });
+
+            // Trigger typewriter for this chapter
+            const titleEl = chapter.querySelector(".typewriter");
+            typeText(titleEl);
+          }
         });
+      },
+      { threshold: 0.6 }
+    );
+
+    chapters.forEach((chapter) => chapterObserver.observe(chapter));
+  } else {
+    // Fallback: just show all titles immediately
+    typewriterEls.forEach((el) => {
+      el.textContent = el.getAttribute("data-title") || "";
+      el.classList.add("done");
     });
+  }
 
-    // --- Fade-in Animation on Scroll ---
-    const fadeElements = document.querySelectorAll('.fade-in');
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const scrollObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    fadeElements.forEach(el => {
-        scrollObserver.observe(el);
+  // Also allow clicking progress dots to jump
+  progressLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      progressLinks.forEach((l) => l.classList.remove("active"));
+      link.classList.add("active");
     });
+  });
 
-    // --- Update Footer Year ---
-     const yearSpan = document.getElementById('year');
-     if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-     }
+  // Scroll hint buttons
+  const scrollHints = document.querySelectorAll(".scroll-hint");
+  scrollHints.forEach((btn) => {
+    const targetSelector = btn.getAttribute("data-target");
+    if (!targetSelector) return;
+    btn.addEventListener("click", () => {
+      const target = document.querySelector(targetSelector);
+      if (target) {
+        target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+      }
+    });
+  });
 
+  // Initial typewriter on first visible chapter
+  const firstChapterTitle = document.querySelector(
+    ".chapter.active .typewriter"
+  );
+  if (firstChapterTitle) {
+    typeText(firstChapterTitle);
+  }
 });
+
