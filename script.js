@@ -1,109 +1,110 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Footer year
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  const prefersReducedMotion =
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // Typewriter effect
-  const typewriterEls = document.querySelectorAll(".typewriter");
-  const typedSet = new WeakSet();
-
-  function typeText(el) {
-    if (!el || typedSet.has(el)) return;
-    const fullText = el.getAttribute("data-title") || "";
-    el.textContent = "";
-    typedSet.add(el);
-
-    if (prefersReducedMotion || fullText.length === 0) {
-      el.textContent = fullText;
-      el.classList.add("done");
-      return;
-    }
-
-    let idx = 0;
-    const interval = setInterval(() => {
-      el.textContent = fullText.slice(0, idx);
-      idx++;
-      if (idx > fullText.length) {
-        clearInterval(interval);
-        setTimeout(() => el.classList.add("done"), 200);
-      }
-    }, 45);
+  // -------------------------------------------------------
+  // CV download — uses the browser print dialog with the
+  // dedicated print stylesheet (Save as PDF). Replace with a
+  // direct PDF link here once a hosted CV file is available.
+  // -------------------------------------------------------
+  const cvButton = document.getElementById("cv-button");
+  if (cvButton) {
+    cvButton.addEventListener("click", () => window.print());
   }
 
-  // Scroll-snapping journey and chapter activation
+  // -------------------------------------------------------
+  // Mobile navigation toggle
+  // -------------------------------------------------------
+  const navToggle = document.getElementById("nav-toggle");
+  const siteNav = document.getElementById("site-nav");
+  if (navToggle && siteNav) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // Close the menu after choosing a destination
+    siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        siteNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  // -------------------------------------------------------
+  // Section activation, reveal animation, progress rail
+  // -------------------------------------------------------
   const chapters = document.querySelectorAll(".chapter");
   const progressLinks = document.querySelectorAll(".progress-nav a");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function setActive(chapter) {
+    chapters.forEach((ch) => ch.classList.remove("active"));
+    chapter.classList.add("active");
+
+    const id = chapter.getAttribute("id");
+
+    progressLinks.forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${id}`
+      );
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${id}`
+      );
+    });
+  }
 
   if ("IntersectionObserver" in window) {
     const chapterObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const chapter = entry.target;
-            chapters.forEach((ch) => ch.classList.remove("active"));
-            chapter.classList.add("active");
-
-            // Activate matching progress nav
-            const id = chapter.getAttribute("id");
-            progressLinks.forEach((link) => {
-              const href = link.getAttribute("href");
-              if (href === `#${id}`) {
-                link.classList.add("active");
-              } else {
-                link.classList.remove("active");
-              }
-            });
-
-            // Trigger typewriter for this chapter
-            const titleEl = chapter.querySelector(".typewriter");
-            typeText(titleEl);
+            setActive(entry.target);
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.55 }
     );
 
     chapters.forEach((chapter) => chapterObserver.observe(chapter));
   } else {
-    // Fallback: just show all titles immediately
-    typewriterEls.forEach((el) => {
-      el.textContent = el.getAttribute("data-title") || "";
-      el.classList.add("done");
+    // Fallback: reveal everything immediately
+    chapters.forEach((chapter) => chapter.classList.add("active"));
+  }
+
+  // With reduced motion, reveal everything without animation
+  if (prefersReducedMotion) {
+    document.querySelectorAll(".reveal").forEach((el) => {
+      el.classList.add("visible");
     });
   }
 
-  // Also allow clicking progress dots to jump
-  progressLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      progressLinks.forEach((l) => l.classList.remove("active"));
-      link.classList.add("active");
-    });
-  });
-
+  // -------------------------------------------------------
   // Scroll hint buttons
-  const scrollHints = document.querySelectorAll(".scroll-hint");
-  scrollHints.forEach((btn) => {
+  // -------------------------------------------------------
+  document.querySelectorAll(".scroll-hint").forEach((btn) => {
     const targetSelector = btn.getAttribute("data-target");
     if (!targetSelector) return;
     btn.addEventListener("click", () => {
       const target = document.querySelector(targetSelector);
       if (target) {
-        target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+        target.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
       }
     });
   });
-
-  // Initial typewriter on first visible chapter
-  const firstChapterTitle = document.querySelector(
-    ".chapter.active .typewriter"
-  );
-  if (firstChapterTitle) {
-    typeText(firstChapterTitle);
-  }
 });
-
