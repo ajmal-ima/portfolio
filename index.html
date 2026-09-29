@@ -10,333 +10,319 @@
     name="description"
     content="Ajmal Ibn Mohammed Althaf — Founder & Scientific Lead at QuantumX. Doctoral researcher in Molecular Quantum Mechanics, building quantum and STEM learning ecosystems."
   />
-  <title>Ajmal Ibn Mohammed Althaf — Founder &amp; Scientific Lead, QuantumX</title>
+  <title>Ajmal Ibn Mohammed Althaf — Quantum Researcher &amp; Educator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="background-gradient" aria-hidden="true"></div>
-  <div id="starfield" aria-hidden="true"></div>
 
-  <!-- Floating atoms -->
-  <div class="atom atom-1" aria-hidden="true">
-    <div class="nucleus"></div>
-    <div class="orbit orbit-1"></div>
-    <div class="orbit orbit-2"></div>
-    <div class="electron e-1"></div>
-    <div class="electron e-2"></div>
-  </div>
-  <div class="atom atom-2" aria-hidden="true">
-    <div class="nucleus"></div>
-    <div class="orbit orbit-1"></div>
-    <div class="electron e-1"></div>
-  </div>
-
-  <!-- Top bar -->
-  <header class="site-header">
-    <a href="#about" class="wordmark">
-      <span class="wordmark-mark">QX</span>
-      <span class="wordmark-text">Ajmal&nbsp;Ibn&nbsp;Mohammed&nbsp;Althaf</span>
+  <!-- Sidebar -->
+  <header class="sidebar">
+    <a href="#top" class="sidebar-brand">
+      <span class="brand-glyph" aria-hidden="true">✳</span>
+      <span class="brand-name">Ajmal Ibn<br />Mohammed Althaf</span>
     </a>
 
-    <nav class="site-nav" id="site-nav" aria-label="Primary">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#education" class="nav-link">Education</a>
-      <a href="#research" class="nav-link">Research</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#contact" class="nav-link">Contact</a>
-      <button type="button" class="btn-primary" id="cv-button">Download CV</button>
+    <nav class="sidebar-nav" aria-label="Primary">
+      <a href="#about" class="side-link active">About</a>
+      <a href="#education" class="side-link">Education</a>
+      <a href="#research" class="side-link">Research</a>
+      <a href="#experience" class="side-link">Experience</a>
+      <a href="#contact" class="side-link">Contact</a>
     </nav>
 
-    <button
-      type="button"
-      class="nav-toggle"
-      id="nav-toggle"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-    </button>
+    <div class="sidebar-foot">
+      <button type="button" class="btn-amber" id="cv-button">Download CV ↗</button>
+      <p class="sidebar-loc">Kerala, India<br />10.85° N, 76.27° E</p>
+    </div>
   </header>
 
-  <!-- Side progress rail -->
-  <nav class="progress-nav" aria-label="Sections">
-    <ul>
-      <li><a href="#about" data-label="About" aria-label="About"></a></li>
-      <li><a href="#education" data-label="Education" aria-label="Education"></a></li>
-      <li><a href="#research" data-label="Research" aria-label="Research"></a></li>
-      <li><a href="#experience" data-label="Experience" aria-label="Experience"></a></li>
-    </ul>
-  </nav>
+  <main class="main" id="top">
 
-  <main id="journey" class="journey">
-    <!-- ABOUT -->
-    <section id="about" class="chapter active">
-      <div class="chapter-inner">
-        <p class="section-label reveal">About</p>
+    <!-- HERO -->
+    <section id="about" class="hero">
+      <div class="hero-grid-wrap" aria-hidden="true">
+        <svg id="node-graph" viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice">
+          <g id="graph-lines"></g>
+          <g id="graph-nodes"></g>
+        </svg>
+      </div>
 
-        <h1 class="hero-name" aria-label="Ajmal Ibn Mohammed Althaf">
-          <span class="hero-name-first reveal">Ajmal</span>
-          <span class="hero-name-last reveal">Ibn Mohammed Althaf</span>
+      <div class="hero-copy">
+        <p class="eyebrow">Quantum Researcher · Educator · Founder</p>
+        <h1 class="hero-title">
+          Making <em>quantum</em><br />
+          make sense.
         </h1>
-
-        <p class="hero-tagline reveal">
-          Founder &amp; Scientific Lead, QuantumX · Doctoral Researcher in
-          Molecular Quantum Mechanics · Designer of Quantum &amp; STEM Learning
-          Ecosystems
+        <p class="hero-lede">
+          I’m Ajmal — a physicist from Kerala working on molecular quantum
+          mechanics, and the Founder &amp; Scientific Lead of QuantumX, where I
+          turn quantum science into programs people can actually learn from.
         </p>
-
-        <div class="rule" aria-hidden="true"></div>
-
-        <div class="prologue-grid">
-          <div class="prologue-text reveal">
-            <p class="chapter-text">
-              I’m a physicist and educator from Kerala, working at the
-              intersection of <span class="highlight">quantum science, research,
-              and education</span>. My focus is molecular quantum mechanics —
-              and on turning advanced quantum concepts into programs and tools
-              that students and institutions can actually use.
-            </p>
-            <p class="chapter-text">
-              As Founder &amp; Scientific Lead of
-              <span class="highlight">QuantumX</span>, I design learning
-              ecosystems, mentor students and researchers, and lead work that
-              connects quantum theory with practical implementation.
-            </p>
-          </div>
-
-          <dl class="meta-block reveal">
-            <div class="meta-row">
-              <dt>Current Focus</dt>
-              <dd>Founder &amp; Scientific Lead, QuantumX (Oct 2025 – Present)</dd>
-              <dd>Doctoral Researcher in Molecular Quantum Mechanics</dd>
-              <dd>Designer of Quantum &amp; STEM Learning Ecosystems</dd>
-            </div>
-            <div class="meta-row">
-              <dt>Core Expertise</dt>
-              <dd>Quantum information, decoherence &amp; noise models</dd>
-              <dd>Python, C++, MATLAB, IBM Quantum, Linux</dd>
-              <dd>Curriculum design, mentoring &amp; STEM outreach</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div class="contact-strip reveal" id="contact">
-          <span class="contact-item"><span class="contact-key">Base</span> Kerala, India</span>
-          <span class="contact-item">
-            <span class="contact-key">Email</span>
-            <a class="u-link" href="mailto:ajmal1729@gmail.com">ajmal1729@gmail.com</a>
-          </span>
-          <span class="contact-item">
-            <span class="contact-key">GitHub</span>
-            <a class="u-link" href="https://github.com/ajmal-ima" target="_blank" rel="noopener">ajmal-ima</a>
-          </span>
-          <span class="contact-item">
-            <span class="contact-key">LinkedIn</span>
-            <a class="u-link" href="https://www.linkedin.com/in/ajmal-ima" target="_blank" rel="noopener">ajmal-ima</a>
-          </span>
-          <span class="contact-item">
-            <span class="contact-key">YouTube</span>
-            <a class="u-link" href="https://www.youtube.com/@AJMALPHY" target="_blank" rel="noopener">AJMAL PHY</a>
-          </span>
+        <div class="hero-actions">
+          <a href="#experience" class="btn-amber">See my work →</a>
+          <a href="#contact" class="btn-text">Get in touch</a>
         </div>
       </div>
 
-      <button class="scroll-hint" data-target="#education">
-        <span>Education</span>
-        <span class="scroll-hint-arrow" aria-hidden="true">↓</span>
-      </button>
+      <figure class="hero-photo">
+        <!--
+          YOUR PHOTO
+          1. Save your photo as  photo.jpg  in this folder
+             (square, at least 800×800 px works best)
+          2. It appears here automatically — nothing else to change.
+        -->
+        <img
+          src="photo.jpg"
+          alt="Portrait of Ajmal Ibn Mohammed Althaf"
+          width="480"
+          height="600"
+          onerror="this.closest('.hero-photo').classList.add('is-missing')"
+        />
+        <figcaption class="photo-caption">
+          <span>Ajmal Ibn Mohammed Althaf</span>
+          <span class="photo-caption-dim">Palakkad → the quantum realm</span>
+        </figcaption>
+        <div class="photo-placeholder" aria-hidden="true">photo.jpg</div>
+      </figure>
+
+      <a href="#focus" class="scroll-cue" aria-label="Scroll to content">
+        <span></span>
+      </a>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="chapter">
-      <div class="chapter-inner">
-        <p class="section-label reveal">Education</p>
-        <h2 class="chapter-title reveal">Academic Background</h2>
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Quantum Computing ✳ Molecular Quantum Mechanics ✳ Decoherence &amp; Noise ✳ Quantum Education ✳ STEM Outreach ✳ Quantum Computing ✳ Molecular Quantum Mechanics ✳ Decoherence &amp; Noise ✳ Quantum Education ✳ STEM Outreach ✳</span>
+      </div>
+    </div>
 
-        <div class="chapter-grid">
-          <div class="reveal">
-            <p class="chapter-text">
-              A foundation in physics, built from undergraduate study in Kerala
-              to doctoral research in
-              <span class="highlight">molecular quantum mechanics</span>.
-            </p>
+    <!-- FOCUS -->
+    <section id="focus" class="section">
+      <div class="section-head">
+        <p class="section-index">01</p>
+        <h2 class="section-title">What I <em>work</em> on</h2>
+      </div>
 
-            <ol class="timeline">
-              <li class="timeline-item">
-                <p class="timeline-date">2022 — Present</p>
-                <h3>Ph.D. in Physics (Part-time)</h3>
-                <p class="timeline-sub">Kalasalingam Academy of Research and Education</p>
-                <p class="timeline-tag">Molecular Quantum Mechanics · Doctoral Researcher</p>
-              </li>
-              <li class="timeline-item">
-                <p class="timeline-date">2019 — 2021</p>
-                <h3>M.Sc. Physics</h3>
-                <p class="timeline-sub">Vellore Institute of Technology</p>
-                <p class="timeline-tag">Thesis: Decoherence in Quantum Communication Protocols</p>
-              </li>
-              <li class="timeline-item">
-                <p class="timeline-date">2015 — 2018</p>
-                <h3>B.Sc. Physics</h3>
-                <p class="timeline-sub">University of Calicut</p>
-                <p class="timeline-tag">Minor in Mathematics &amp; Computer Science</p>
-              </li>
-            </ol>
-          </div>
+      <div class="focus-grid">
+        <article class="focus-card">
+          <p class="focus-num">↳ 01</p>
+          <h3>QuantumX</h3>
+          <p>
+            Founder &amp; Scientific Lead since Oct 2025 — advancing quantum
+            computing innovation and its real-world applications.
+          </p>
+          <p class="focus-meta">Quantum innovation · Applied research · Mentorship</p>
+        </article>
+        <article class="focus-card">
+          <p class="focus-num">↳ 02</p>
+          <h3>Research</h3>
+          <p>
+            Doctoral work in Molecular Quantum Mechanics — decoherence, noise
+            models, and quantum communication protocols.
+          </p>
+          <p class="focus-meta">Decoherence · VQE &amp; QAOA · IBM Quantum</p>
+        </article>
+        <article class="focus-card">
+          <p class="focus-num">↳ 03</p>
+          <h3>Education</h3>
+          <p>
+            Designing quantum and STEM curricula that translate research into
+            classrooms, from schools to universities.
+          </p>
+          <p class="focus-meta">Curriculum design · STEM outreach · Training</p>
+        </article>
+        <article class="focus-card">
+          <p class="focus-num">↳ 04</p>
+          <h3>Community</h3>
+          <p>
+            Founder of Q. Enthusiasts Kerala and creator of AJMAL PHY on
+            YouTube — mentorship and resources for a growing quantum community.
+          </p>
+          <p class="focus-meta">Q. Enthusiasts Kerala · AJMAL PHY · LIGO India</p>
+        </article>
+      </div>
+    </section>
 
-          <dl class="meta-block reveal">
-            <div class="meta-row">
-              <dt>Technical Skills</dt>
-              <dd>IBM Quantum, Python, C++, MATLAB, Linux</dd>
-              <dd>Optoelectronics, Photonics, Electronics</dd>
-              <dd>VQE, QAOA, decoherence &amp; noise models</dd>
-            </div>
-            <div class="meta-row">
-              <dt>Languages</dt>
-              <dd>English, Hindi, Arabic (Professional)</dd>
-              <dd>Malayalam (Native)</dd>
-              <dd>Tamil (Conversational) · French (Basic)</dd>
-            </div>
-          </dl>
+    <!-- EDUCATION — sticky split -->
+    <section id="education" class="section split">
+      <div class="split-left">
+        <p class="section-index">02</p>
+        <h2 class="section-title">Academic<br /><em>background</em></h2>
+        <p class="section-lede">
+          A foundation in physics — from undergraduate study in Kerala to
+          doctoral research in molecular quantum mechanics.
+        </p>
+        <div class="skills-block">
+          <h3 class="mono-label">Technical skills</h3>
+          <p class="skills-line">
+            IBM Quantum · Python · C++ · MATLAB · Linux · Optoelectronics ·
+            Photonics · Electronics · VQE · QAOA
+          </p>
+          <h3 class="mono-label">Languages</h3>
+          <p class="skills-line">
+            English · Hindi · Arabic (Professional) — Malayalam (Native) —
+            Tamil (Conversational) · French (Basic)
+          </p>
         </div>
       </div>
 
-      <button class="scroll-hint" data-target="#research">
-        <span>Research</span>
-        <span class="scroll-hint-arrow" aria-hidden="true">↓</span>
-      </button>
+      <ol class="degree-list split-right">
+        <li class="degree">
+          <p class="degree-period">2022 — Present</p>
+          <h3>Ph.D. in Physics <span class="degree-note">(Part-time)</span></h3>
+          <p class="degree-org">Kalasalingam Academy of Research and Education</p>
+          <p class="degree-tag">Molecular Quantum Mechanics · Doctoral Researcher</p>
+        </li>
+        <li class="degree">
+          <p class="degree-period">2019 — 2021</p>
+          <h3>M.Sc. Physics</h3>
+          <p class="degree-org">Vellore Institute of Technology</p>
+          <p class="degree-tag">Thesis: Decoherence in Quantum Communication Protocols</p>
+        </li>
+        <li class="degree">
+          <p class="degree-period">2015 — 2018</p>
+          <h3>B.Sc. Physics</h3>
+          <p class="degree-org">University of Calicut</p>
+          <p class="degree-tag">Minor in Mathematics &amp; Computer Science</p>
+        </li>
+      </ol>
     </section>
 
     <!-- RESEARCH -->
-    <section id="research" class="chapter">
-      <div class="chapter-inner">
-        <p class="section-label reveal">Research</p>
-        <h2 class="chapter-title reveal">Research, Certifications &amp; Outreach</h2>
-
-        <p class="chapter-text reveal">
-          Work spanning quantum communication, decoherence and noise models,
-          and the <span class="highlight">digital divide in quantum
-          education</span> — alongside certifications and community outreach.
+    <section id="research" class="section">
+      <div class="section-head">
+        <p class="section-index">03</p>
+        <h2 class="section-title">Research &amp; <em>outreach</em></h2>
+        <p class="section-lede">
+          Quantum communication, decoherence and noise models — and the
+          digital divide in quantum education.
         </p>
-
-        <div class="chapter-grid">
-          <div class="reveal">
-            <h3 class="subheading">Research &amp; Conferences</h3>
-            <ul class="entry-list">
-              <li>Doctoral Researcher — Molecular Quantum Mechanics (2022–Present)</li>
-              <li>Decoherence in Quantum Communication Protocols — Master’s Thesis</li>
-              <li>Quantum Computing &amp; ML for DFT — ICNMD-24, KARE</li>
-              <li>Digital Divide in Quantum Education — Quantum Universal Education 2021</li>
-              <li>Effect of Damping in Quantum Communication — ICSET 2020</li>
-              <li>Controller Independent Quantum Communication — ICSET 2019</li>
-            </ul>
-
-            <h3 class="subheading">Certifications</h3>
-            <ul class="entry-list">
-              <li>QT-05, QT-03, QT-02, QT-01 — Quantum Technologies Series</li>
-              <li>IBM Quantum Challenge 2021 Achievement</li>
-              <li>Introduction to Quantum Computing — Qubit by Qubit</li>
-              <li>Python for Data Science — IBM</li>
-              <li>From the Big Bang to Dark Energy · Intro to Cybersecurity — Coursera</li>
-            </ul>
-          </div>
-
-          <div class="reveal">
-            <h3 class="subheading">Community &amp; Outreach</h3>
-            <ul class="entry-list">
-              <li>Founder — Q. Enthusiasts Kerala (2020–Present)</li>
-              <li>YouTube Channel — AJMAL PHY (Physics &amp; Quantum outreach)</li>
-              <li>LIGO India Gravitational Waves Science Communicator Program</li>
-            </ul>
-
-            <h3 class="subheading">Beyond Research</h3>
-            <ul class="entry-list">
-              <li>Linux distro testing &amp; tinkering</li>
-              <li>Career guidance for students</li>
-              <li>Basketball &amp; creative physics tutorials</li>
-            </ul>
-          </div>
-        </div>
       </div>
 
-      <button class="scroll-hint" data-target="#experience">
-        <span>Experience</span>
-        <span class="scroll-hint-arrow" aria-hidden="true">↓</span>
-      </button>
+      <div class="research-grid">
+        <div>
+          <h3 class="mono-label">Research &amp; conferences</h3>
+          <ul class="lined-list">
+            <li>Doctoral Researcher — Molecular Quantum Mechanics <span class="list-meta">2022–Present</span></li>
+            <li>Decoherence in Quantum Communication Protocols <span class="list-meta">Master’s Thesis</span></li>
+            <li>Quantum Computing &amp; ML for DFT <span class="list-meta">ICNMD-24, KARE</span></li>
+            <li>Digital Divide in Quantum Education <span class="list-meta">QUE 2021</span></li>
+            <li>Effect of Damping in Quantum Communication <span class="list-meta">ICSET 2020</span></li>
+            <li>Controller Independent Quantum Communication <span class="list-meta">ICSET 2019</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mono-label">Certifications</h3>
+          <ul class="lined-list">
+            <li>Quantum Technologies Series <span class="list-meta">QT-01 → QT-05</span></li>
+            <li>IBM Quantum Challenge 2021 <span class="list-meta">Achievement</span></li>
+            <li>Introduction to Quantum Computing <span class="list-meta">Qubit by Qubit</span></li>
+            <li>Python for Data Science <span class="list-meta">IBM</span></li>
+            <li>Big Bang to Dark Energy · Cybersecurity <span class="list-meta">Coursera</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mono-label">Community &amp; beyond</h3>
+          <ul class="lined-list">
+            <li>Founder — Q. Enthusiasts Kerala <span class="list-meta">2020–Present</span></li>
+            <li>AJMAL PHY — Physics &amp; Quantum outreach <span class="list-meta">YouTube</span></li>
+            <li>LIGO India Science Communicator <span class="list-meta">Program</span></li>
+            <li>Linux tinkering · Career guidance <span class="list-meta">Side quests</span></li>
+            <li>Basketball &amp; creative physics tutorials <span class="list-meta">Off hours</span></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="chapter final">
-      <div class="chapter-inner">
-        <p class="section-label reveal">Experience</p>
-        <h2 class="chapter-title reveal">QuantumX &amp; Professional Journey</h2>
-
-        <div class="chapter-grid">
-          <div class="reveal">
-            <p class="chapter-text">
-              At <span class="highlight">QuantumX</span>, as Founder &amp;
-              Scientific Lead, I focus on advancing
-              <span class="highlight">quantum computing innovation and its
-              applications</span> — supported by ongoing doctoral research in
-              Physics at Kalasalingam Academy of Research and Education in
-              Molecular Quantum Mechanics.
-            </p>
-            <p class="chapter-text">
-              Through <span class="highlight">Q. Enthusiasts Kerala</span>, I offer
-              mentorship, guidance, and resources to a community passionate
-              about quantum computing — committed to
-              <span class="highlight">bridging the gap between advanced quantum
-              concepts and their practical implementations</span>.
-            </p>
-
-            <h3 class="subheading">Professional Experience</h3>
-            <ul class="entry-list roles-list">
-              <li><span class="role-period">Oct 2025 — Present</span> Founder &amp; Scientific Lead — QuantumX</li>
-              <li><span class="role-period">Feb — Sept 2025</span> Chief Academic Officer — Steyp (Talrop Initiative)</li>
-              <li><span class="role-period">2024 — 2025</span> Team Lead, Academics — Talrop</li>
-              <li><span class="role-period">2023 — 2025</span> Academic Researcher — Talrop</li>
-              <li><span class="role-period">2023</span> Educational Content Creator — Pedagotech Subjectiv</li>
-              <li><span class="role-period">2023</span> Assistant Professor (Ad-hoc) — Govt. Engineering College, Wayanad</li>
-              <li><span class="role-period">2022 — 2023</span> HOD &amp; Assistant Professor — The Elegant College of Arts &amp; Science</li>
-            </ul>
-          </div>
-
-          <div class="reveal">
-            <dl class="meta-block">
-              <div class="meta-row">
-                <dt>Focus Areas at QuantumX</dt>
-                <dd>Advance quantum computing innovation and real-world applications</dd>
-                <dd>Connect Molecular Quantum Mechanics research with practical systems</dd>
-                <dd>Design quantum and STEM programs that translate research into classrooms</dd>
-                <dd>Mentor students and enthusiasts through QuantumX &amp; Q. Enthusiasts Kerala</dd>
-              </div>
-            </dl>
-
-            <div class="collab-panel">
-              <p class="collab-kicker">Collaboration</p>
-              <p class="collab-text">
-                Open to quantum education initiatives, research collaborations,
-                and applied projects that move quantum technology from theory
-                to tangible impact.
-              </p>
-              <a href="mailto:ajmal1729@gmail.com" class="btn-primary btn-large">
-                Get in Touch ✉
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <footer class="site-footer">
-          <p>© <span id="year"></span> Ajmal Ibn Mohammed Althaf · QuantumX</p>
-        </footer>
+    <section id="experience" class="section">
+      <div class="section-head">
+        <p class="section-index">04</p>
+        <h2 class="section-title">The <em>professional</em> journey</h2>
+        <p class="section-lede">
+          From lecture halls in Wayanad to founding QuantumX — bridging
+          advanced quantum concepts and their practical implementations.
+        </p>
       </div>
+
+      <ol class="xp-table">
+        <li class="xp-row">
+          <span class="xp-period">Oct 2025 — Present</span>
+          <span class="xp-role">Founder &amp; Scientific Lead</span>
+          <span class="xp-org">QuantumX</span>
+        </li>
+        <li class="xp-row">
+          <span class="xp-period">Feb — Sept 2025</span>
+          <span class="xp-role">Chief Academic Officer</span>
+          <span class="xp-org">Steyp (Talrop Initiative)</span>
+        </li>
+        <li class="xp-row">
+          <span class="xp-period">2024 — 2025</span>
+          <span class="xp-role">Team Lead, Academics</span>
+          <span class="xp-org">Talrop</span>
+        </li>
+        <li class="xp-row">
+          <span class="xp-period">2023 — 2025</span>
+          <span class="xp-role">Academic Researcher</span>
+          <span class="xp-org">Talrop</span>
+        </li>
+        <li class="xp-row">
+          <span class="xp-period">2023</span>
+          <span class="xp-role">Educational Content Creator</span>
+          <span class="xp-org">Pedagotech Subjectiv</span>
+        </li>
+        <li class="xp-row">
+          <span class="xp-period">2023</span>
+          <span class="xp-role">Assistant Professor (Ad-hoc)</span>
+          <span class="xp-org">Govt. Engineering College, Wayanad</span>
+        </li>
+        <li class="xp-row">
+          <span class="xp-period">2022 — 2023</span>
+          <span class="xp-role">HOD &amp; Assistant Professor</span>
+          <span class="xp-org">The Elegant College of Arts &amp; Science</span>
+        </li>
+      </ol>
     </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <p class="section-index">05</p>
+      <h2 class="contact-title">
+        Let’s build what’s <em>next</em><br />in quantum.
+      </h2>
+      <p class="section-lede">
+        Open to quantum education initiatives, research collaborations, and
+        applied projects that move quantum technology from theory to tangible
+        impact.
+      </p>
+
+      <div class="contact-lines">
+        <a class="contact-line" href="mailto:ajmal1729@gmail.com">
+          <span class="contact-key">E.</span> ajmal1729@gmail.com
+        </a>
+        <a class="contact-line" href="https://github.com/ajmal-ima" target="_blank" rel="noopener">
+          <span class="contact-key">G.</span> github.com/ajmal-ima
+        </a>
+        <a class="contact-line" href="https://www.linkedin.com/in/ajmal-ima" target="_blank" rel="noopener">
+          <span class="contact-key">L.</span> linkedin.com/in/ajmal-ima
+        </a>
+        <a class="contact-line" href="https://www.youtube.com/@AJMALPHY" target="_blank" rel="noopener">
+          <span class="contact-key">Y.</span> youtube.com/@AJMALPHY
+        </a>
+      </div>
+
+      <footer class="site-footer">
+        <p>© <span id="year"></span> Ajmal Ibn Mohammed Althaf · QuantumX — Kerala, India</p>
+      </footer>
+    </section>
+
   </main>
 
   <script src="script.js"></script>
