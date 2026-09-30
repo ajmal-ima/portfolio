@@ -1,16 +1,30 @@
 /* ============================================================
    Ajmal Ibn Mohammed Althaf · ajmal.science
-   Minimal JavaScript: mobile nav, scrollspy, footer year, CV.
+   Minimal JavaScript: mobile nav, scrollspy, reveals, year.
    ============================================================ */
 
 (function () {
   "use strict";
+
+  var reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
   /* Footer year */
   var yearEl = document.getElementById("year");
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
+
+  /* Header state */
+  var header = document.querySelector(".site-header");
+  function onScroll() {
+    if (header) {
+      header.classList.toggle("scrolled", window.scrollY > 24);
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
   /* Mobile navigation toggle */
   var navToggle = document.getElementById("nav-toggle");
@@ -22,7 +36,6 @@
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
 
-    /* Close the menu after choosing a section */
     siteNav.addEventListener("click", function (event) {
       if (event.target.closest("a")) {
         siteNav.classList.remove("open");
@@ -47,7 +60,7 @@
     });
 
   if ("IntersectionObserver" in window && sectionByLink.length) {
-    var observer = new IntersectionObserver(
+    var spy = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
@@ -62,25 +75,30 @@
       { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
     );
     sectionByLink.forEach(function (item) {
-      observer.observe(item.section);
+      spy.observe(item.section);
     });
   }
 
-  /*
-    CV / Resume
-    The buttons below print this page, which uses a dedicated print
-    stylesheet as a clean CV layout.
-
-    To link a real PDF instead:
-    1. Add cv.pdf to this folder.
-    2. Replace window.print() with: window.open("cv.pdf", "_blank");
-  */
-  function handleCv() {
-    window.print();
+  /* Fade-in reveals */
+  var revealEls = document.querySelectorAll(".reveal");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function (el) {
+      el.classList.add("in");
+    });
+  } else {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    revealEls.forEach(function (el) {
+      revealObserver.observe(el);
+    });
   }
-
-  ["cv-button", "cv-button-footer"].forEach(function (id) {
-    var btn = document.getElementById(id);
-    if (btn) btn.addEventListener("click", handleCv);
-  });
 })();
