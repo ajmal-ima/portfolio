@@ -16,6 +16,21 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  /*
+    Portrait
+    The photo stays hidden until the file is confirmed to load,
+    so the frame always shows the styled placeholder otherwise.
+    To use your photo, place photo.jpg next to index.html.
+  */
+  var portrait = document.querySelector(".hero-portrait");
+  if (portrait) {
+    var probe = new Image();
+    probe.onload = function () {
+      portrait.classList.add("has-photo");
+    };
+    probe.src = "photo.jpg";
+  }
+
   /* Header state */
   var header = document.querySelector(".site-header");
   function onScroll() {
