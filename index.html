@@ -19,16 +19,17 @@
   <meta property="og:url" content="https://ajmal.science/" />
   <meta property="og:title" content="Ajmal Ibn Mohammed Althaf · Physicist" />
   <meta property="og:description" content="Physicist from Kerala. PhD researcher in molecular quantum mechanics, teacher, and co-founder of QuantumX." />
-  <meta property="og:image" content="https://ajmal.science/og-image.jpg" />
+  <meta property="og:image" content="https://ajmal.science/og-ajmal-2026.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Ajmal Ibn Mohammed Althaf" />
+  <meta property="og:image:alt" content="Sketchbook card: Ajmal Ibn Mohammed Althaf, physicist from Kerala, with a photo of him explaining Mars." />
   <meta property="profile:first_name" content="Ajmal" />
   <meta property="profile:last_name" content="Ibn Mohammed Althaf" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ajmal Ibn Mohammed Althaf · Physicist" />
   <meta name="twitter:description" content="Physicist from Kerala. PhD researcher, teacher, and co-founder of QuantumX." />
-  <meta name="twitter:image" content="https://ajmal.science/og-image.jpg" />
+  <meta name="twitter:image" content="https://ajmal.science/og-ajmal-2026.jpg" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -104,8 +105,10 @@
       <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n" />
       <feDisplacementMap in="SourceGraphic" in2="n" scale="3" />
     </filter>
+    <!-- a photon: a little wave packet with a dot -->
     <symbol id="star" viewBox="0 0 40 40">
-      <path d="M20 3 L25 15 L38 16 L28 25 L31 38 L20 31 L9 38 L12 25 L2 16 L15 15 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" />
+      <path d="M2 20 q3 -9 6 0 t6 0 t6 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" />
+      <circle cx="29" cy="20" r="8" stroke="currentColor" stroke-width="2.2" />
     </symbol>
   </svg>
 
@@ -132,28 +135,20 @@
 
     <!-- Intro -->
     <section class="intro" id="top" aria-label="Introduction">
+      <!-- a standing wave on a string, n = 3 (it oscillates gently when motion is allowed) -->
       <svg class="lights" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 12 Q 300 70 600 28 T 1200 18" fill="none" stroke="currentColor" stroke-width="2" filter="url(#wobble)" />
-        <g filter="url(#crayon)">
-          <circle class="bulb" cx="80"  cy="27" r="7" fill="var(--c-yellow)" />
-          <circle class="bulb" cx="190" cy="40" r="7" fill="var(--c-magenta)" />
-          <circle class="bulb" cx="300" cy="46" r="7" fill="var(--c-cyan)" />
-          <circle class="bulb" cx="410" cy="45" r="7" fill="var(--c-orange)" />
-          <circle class="bulb" cx="520" cy="37" r="7" fill="var(--c-green)" />
-          <circle class="bulb" cx="630" cy="27" r="7" fill="var(--c-violet)" />
-          <circle class="bulb" cx="740" cy="17" r="7" fill="var(--c-yellow)" />
-          <circle class="bulb" cx="850" cy="12" r="7" fill="var(--c-magenta)" />
-          <circle class="bulb" cx="960" cy="13" r="7" fill="var(--c-cyan)" />
-          <circle class="bulb" cx="1070" cy="17" r="7" fill="var(--c-orange)" />
-        </g>
+        <line x1="0" y1="35" x2="1200" y2="35" stroke="currentColor" stroke-width="1" stroke-dasharray="3 7" opacity=".5" />
+        <path class="wave" d="M0 35 Q 200 5 400 35 T 800 35 T 1200 35" fill="none" stroke="var(--c-violet)" stroke-width="2.4" stroke-linecap="round" filter="url(#wobble)" />
+        <g fill="var(--c-magenta)"><circle cx="0" cy="35" r="5" /><circle cx="400" cy="35" r="5" /><circle cx="800" cy="35" r="5" /><circle cx="1200" cy="35" r="5" /></g>
       </svg>
 
       <!-- floating doodles (move at different speeds as you scroll) -->
-      <svg class="float f-atom" data-speed="-0.12" viewBox="0 0 60 60" aria-hidden="true">
-        <g fill="none" stroke="var(--c-violet)" stroke-width="2" filter="url(#wobble)">
-          <ellipse cx="30" cy="30" rx="26" ry="9" /><ellipse cx="30" cy="30" rx="26" ry="9" transform="rotate(60 30 30)" /><ellipse cx="30" cy="30" rx="26" ry="9" transform="rotate(-60 30 30)" />
+      <svg class="float f-atom" data-speed="-0.12" viewBox="0 0 60 90" aria-hidden="true">
+        <path d="M14 4 H46" stroke="currentColor" stroke-width="2" filter="url(#wobble)" />
+        <g class="pendulum">
+          <line x1="30" y1="4" x2="30" y2="68" stroke="currentColor" stroke-width="1.6" />
+          <circle cx="30" cy="74" r="9" fill="var(--c-orange)" stroke="currentColor" stroke-width="1.6" />
         </g>
-        <circle cx="30" cy="30" r="4" fill="var(--c-magenta)" />
       </svg>
       <svg class="float f-wave" data-speed="0.08" viewBox="0 0 120 30" aria-hidden="true">
         <path d="M2 15 Q 17 0 32 15 T 62 15 T 92 15 T 118 15" fill="none" stroke="var(--c-cyan)" stroke-width="3" stroke-linecap="round" filter="url(#wobble)" />
@@ -170,7 +165,7 @@
             with two friends.
           </p>
           <p class="where">Kerala &amp; Bangalore, India</p>
-          <p class="game-hint">psst: there are six stars hidden on this page <svg class="mini-star" aria-hidden="true"><use href="#star" /></svg></p>
+          <p class="game-hint">psst: six photons are hiding on this page <svg class="mini-star" aria-hidden="true"><use href="#star" /></svg></p>
         </div>
 
         <figure class="portrait tilt">
@@ -182,13 +177,14 @@
                  alt="Ajmal Ibn Mohammed Althaf standing in a dark dome, pointing at a planet projected on the wall, with a telescope beside him." />
           </picture>
           <figcaption>explaining Mars, probably</figcaption>
-          <button class="star" style="--x: 88%; --y: 4%" aria-label="Hidden star 1"><svg><use href="#star" /></svg></button>
+          <button class="star" style="--x: 88%; --y: 4%" aria-label="Hidden photon 1"><svg><use href="#star" /></svg></button>
         </figure>
       </div>
     </section>
 
     <!-- About -->
     <section class="sec" id="about" style="--hl: var(--c-yellow)">
+      <span class="float eq" data-speed="-0.06" style="top: 70px; right: 7%" aria-hidden="true">E = hν</span>
       <div class="wrap narrow">
         <h2 class="reveal"><span>About</span></h2>
         <figure class="mug reveal">
@@ -253,7 +249,7 @@
               <img src="img/tower-900.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Ajmal on a grassy hill under a blue sky, with an old stone tower behind him." />
             </picture>
             <p>a tower, a hill, good clouds</p>
-            <button class="star" style="--x: 80%; --y: -6%" aria-label="Hidden star 2"><svg><use href="#star" /></svg></button>
+            <button class="star" style="--x: 80%; --y: -6%" aria-label="Hidden photon 2"><svg><use href="#star" /></svg></button>
           </li>
         </ul>
       </div>
@@ -338,7 +334,7 @@
           </ul>
           <p class="tools"><span>tools I use</span> Python, Qiskit, Quantum ESPRESSO, MATLAB, COMSOL, LaTeX, Linux</p>
         </div>
-        <button class="star" style="--x: 96%; --y: 2%" aria-label="Hidden star 3"><svg><use href="#star" /></svg></button>
+        <button class="star" style="--x: 96%; --y: 2%" aria-label="Hidden photon 3"><svg><use href="#star" /></svg></button>
       </div>
 
       <div class="wrap">
@@ -397,7 +393,7 @@
           </p>
           <p><a class="more" href="https://quantumx.ventures/" rel="noopener">quantumx.ventures →</a></p>
         </div>
-        <button class="star" style="--x: 70%; --y: 10%" aria-label="Hidden star 4"><svg><use href="#star" /></svg></button>
+        <button class="star" style="--x: 70%; --y: 10%" aria-label="Hidden photon 4"><svg><use href="#star" /></svg></button>
       </div>
       <div class="wrap">
         <ul class="snaps reveal" aria-label="Out with QuantumX">
@@ -442,6 +438,7 @@
 
     <!-- Teaching and Talks -->
     <section class="sec" id="teaching" style="--hl: var(--c-orange)">
+      <span class="float eq" data-speed="0.09" style="top: 46%; left: 3%" aria-hidden="true">F = −kx</span>
       <svg class="float f-apple" data-speed="-0.15" viewBox="0 0 60 60" aria-hidden="true">
         <g filter="url(#crayon)"><circle cx="30" cy="34" r="18" fill="var(--c-magenta)" /><path d="M30 16 q 4 -10 12 -10" stroke="var(--c-green)" stroke-width="4" fill="none" /></g>
       </svg>
@@ -487,7 +484,7 @@
             </li>
           </ul>
         </div>
-        <button class="star" style="--x: 92%; --y: 55%" aria-label="Hidden star 5"><svg><use href="#star" /></svg></button>
+        <button class="star" style="--x: 92%; --y: 55%" aria-label="Hidden photon 5"><svg><use href="#star" /></svg></button>
       </div>
 
       <div class="wrap">
@@ -530,6 +527,7 @@
 
     <!-- Writing -->
     <section class="sec" id="writing" style="--hl: var(--c-magenta)">
+      <span class="float eq" data-speed="-0.08" style="top: 40px; right: 9%" aria-hidden="true">λ = h / p</span>
       <div class="wrap narrow">
         <h2 class="reveal"><span>Writing</span></h2>
         <div class="reveal">
@@ -550,6 +548,7 @@
 
     <!-- Contact -->
     <section class="sec contact" id="contact" style="--hl: var(--c-violet)">
+      <span class="float eq" data-speed="0.06" style="top: 30px; right: 6%" aria-hidden="true">Δx Δp ≥ ħ/2</span>
       <div class="wrap narrow">
         <h2 class="reveal"><span>Say hello</span></h2>
         <p class="reveal">Email is the best way to reach me.</p>
@@ -560,7 +559,7 @@
           <li><a href="https://github.com/ajmal-ima" rel="noopener me"><b>github</b> ajmal-ima</a></li>
           <li><a href="https://www.youtube.com/@ajmal1" rel="noopener me"><b>youtube</b> @ajmal1</a></li>
         </ul>
-        <button class="star" style="--x: 85%; --y: 12%" aria-label="Hidden star 6"><svg><use href="#star" /></svg></button>
+        <button class="star" style="--x: 85%; --y: 12%" aria-label="Hidden photon 6"><svg><use href="#star" /></svg></button>
       </div>
 
       <figure class="machine wrap reveal" data-machine="catapult">

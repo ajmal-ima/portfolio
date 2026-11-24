@@ -6,6 +6,7 @@ Personal site of Ajmal Ibn Mohammed Althaf. Plain HTML, CSS and JavaScript, serv
 - `style.css`: the sketchbook look.
 - `script.js`: optional motion: scroll reveals, pencil pointer, hidden stars, physics figures.
 - `img/`: web-sized photos.
+- `og-ajmal-2026.jpg`: the link-preview image. Edit `tools/og.html`, then `node tools/render-og.js og-ajmal-YYYY.jpg` and update the two `og:image`/`twitter:image` tags. Use a new file name each time so WhatsApp and LinkedIn fetch it fresh.
 
 ## Adding a photo
 
