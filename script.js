@@ -50,7 +50,7 @@
 
   /* ---------- 3. Pointer: crayon sparkles that follow the mouse ---------- */
   if (finePointer && !reduce) {
-    var colors = ["#e04fa8", "#3fae49", "#ee8a35", "#2bbccc", "#7b68d8", "#f2cf3c"];
+    var colors = ["#3b4fa0", "#3b4fa0", "#c94c3c"];   // ink blue, with the odd red-pencil dot
     var last = 0, i = 0;
     window.addEventListener("pointermove", function (ev) {
       var now = performance.now();
@@ -60,7 +60,7 @@
       d.className = "spark";
       d.style.left = ev.clientX + "px";
       d.style.top = ev.clientY + "px";
-      d.style.background = colors[i++ % colors.length];
+      d.style.background = colors[i++ % colors.length];   // a fading particle track, like a cloud chamber
       document.body.appendChild(d);
       setTimeout(function () { d.remove(); }, 700);
     }, { passive: true });
@@ -83,7 +83,7 @@
       p.style.left = x + "px"; p.style.top = y + "px";
       p.style.setProperty("--dx", Math.cos(a) * r + "px");
       p.style.setProperty("--dy", Math.sin(a) * r + "px");
-      p.style.background = ["#e04fa8", "#3fae49", "#ee8a35", "#2bbccc", "#7b68d8", "#f2cf3c"][k % 6];
+      p.style.background = ["#3b4fa0", "#c94c3c", "#d39b3a"][k % 3];
       document.body.appendChild(p);
       (function (n) { setTimeout(function () { n.remove(); }, 900); })(p);
     }
@@ -100,7 +100,7 @@
     countEl.textContent = found.length;
     if (found.length === stars.length) {
       counter.classList.add("done");
-      counter.innerHTML = '<svg aria-hidden="true"><use href="#star" /></svg> all 6! thanks for reading this far. <a href="#contact">say hi</a>';
+      counter.innerHTML = '<svg aria-hidden="true"><use href="#star" /></svg> all 6 photons absorbed. thanks for reading this far. <a href="#contact">say hi</a>';
     }
   }
 
@@ -211,6 +211,17 @@
       }
       requestAnimationFrame(step);
     });
+  }
+
+  /* ---------- 6. Standing wave across the top ---------- */
+  var wave = document.querySelector(".lights .wave");
+  if (wave && !reduce) {
+    var t0 = performance.now();
+    (function draw(now) {
+      var a = 30 * Math.cos((now - t0) / 700);       // amplitude swings: y = A sin(kx) cos(ωt)
+      wave.setAttribute("d", "M0 35 Q 200 " + (35 - a).toFixed(1) + " 400 35 T 800 35 T 1200 35");
+      requestAnimationFrame(draw);
+    })(t0);
   }
 
 })();
