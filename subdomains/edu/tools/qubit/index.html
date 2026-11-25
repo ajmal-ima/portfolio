@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A qubit you can turn · edu.ajmal.science</title>
+  <meta name="description" content="Apply quantum gates to one qubit, watch it move on the Bloch sphere, then measure it a hundred times." />
+  <meta name="author" content="Ajmal Ibn Mohammed Althaf" />
+  <link rel="canonical" href="https://edu.ajmal.science/tools/qubit/" />
+  <meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1f1e1c" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="edu.ajmal.science" />
+  <meta property="og:url" content="https://edu.ajmal.science/tools/qubit/" />
+  <meta property="og:title" content="A qubit you can turn" />
+  <meta property="og:description" content="Apply quantum gates to one qubit, watch it move on the Bloch sphere, then measure it a hundred times." />
+  <meta property="og:image" content="https://ajmal.science/og-ajmal-2026.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/notebook.css" />
+  <style>:root { --hl: var(--c-yellow); --hl-ink: var(--c-ochre); }</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "A qubit you can turn",
+    "description": "Apply quantum gates to one qubit, watch it move on the Bloch sphere, then measure it a hundred times.",
+    "learningResourceType": "simulation",
+    "isAccessibleForFree": true,
+    "educationalLevel": "class 11 and up",
+    "url": "https://edu.ajmal.science/tools/qubit/",
+    "author": {
+      "@type": "Person",
+      "name": "Ajmal Ibn Mohammed Althaf",
+      "url": "https://ajmal.science/",
+      "sameAs": [
+        "https://www.linkedin.com/in/ajmal-ima",
+        "https://github.com/ajmal-ima",
+        "https://www.instagram.com/ajmalqx/"
+      ]
+    },
+    "inLanguage": "en-IN"
+  }
+  </script>
+  <script src="/js/kit.js" defer></script>
+  <script src="/tools/qubit/tool.js" defer></script>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <filter id="crayon" x="-5%" y="-20%" width="110%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" />
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" />
+    </filter>
+  </svg>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top-inner">
+      <span class="name-mark"><a class="home" href="https://ajmal.science/" style="text-decoration:none">ajmal<span class="dot">.</span>science</a> <span aria-hidden="true" style="color:var(--soft)">/</span> <a class="sub" href="/" style="text-decoration:none;color:inherit"><span class="sub">edu</span></a></span>
+      <nav aria-label="Sections">
+        <a href="/#tools" aria-current="page">Tools</a>
+        <a href="/#teachers">For teachers</a>
+        <a href="/#about">About</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="intro wrap narrow">
+      <p class="hello"><a href="/#tools" style="color:inherit">← all tools</a></p>
+      <h1><span>A qubit you can turn</span></h1>
+      <p class="lede">One qubit, six gates and a measurement. The arrow shows the state. Gates rotate it; measuring makes it pick a pole.</p>
+    </section>
+    <section class="wrap">
+      <div class="tool">
+        <div>
+          <div class="stage"><canvas id="bloch" role="img" aria-label="Bloch sphere with an arrow showing the qubit's state"></canvas></div>
+          <p class="readout" id="state" aria-live="polite"></p>
+          <p class="readout" id="probs"></p>
+        </div>
+        <div>
+          <p class="hand">gates</p>
+          <div class="row">
+            <button class="btn" data-gate="H" title="Hadamard: makes an equal superposition">H</button>
+            <button class="btn" data-gate="X" title="X: flips 0 and 1">X</button>
+            <button class="btn" data-gate="Y" title="Y: flips with a phase">Y</button>
+            <button class="btn" data-gate="Z" title="Z: flips the phase">Z</button>
+            <button class="btn" data-gate="S" title="S: quarter turn about z">S</button>
+            <button class="btn" data-gate="T" title="T: eighth turn about z">T</button>
+          </div>
+          <div class="slider"><label for="theta">θ, from |0⟩ towards |1⟩</label><output for="theta">0°</output><input id="theta" type="range" min="0" max="180" step="1" value="0" /></div>
+          <div class="slider"><label for="phi">φ, the phase</label><output for="phi">0°</output><input id="phi" type="range" min="0" max="359" step="1" value="0" /></div>
+          <p class="hand">measure</p>
+          <div class="row">
+            <button class="btn hand go" data-gate="M">measure once</button>
+            <button class="btn hand" data-gate="M100">measure 100 copies</button>
+            <button class="btn hand" data-gate="R">reset</button>
+          </div>
+          <p class="readout" id="counts" aria-live="polite"></p>
+          <div id="bars" aria-hidden="true" style="display:grid;gap:4px;max-width:320px">
+            <div style="display:flex;align-items:center;gap:.5rem"><span class="hand">0</span><span class="b0" style="height:12px;width:0;background:var(--c-blue);border-radius:3px;transition:width .3s"></span></div>
+            <div style="display:flex;align-items:center;gap:.5rem"><span class="hand">1</span><span class="b1" style="height:12px;width:0;background:var(--c-red);border-radius:3px;transition:width .3s"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="wrap narrow">
+      <h2><span>Try this</span></h2>
+      <ol class="try">
+            <li>Press <b>H</b>, then <b>measure once</b>. The arrow jumps to the top or the bottom. Measure again: it stays put.</li>
+            <li>Reset, press <b>H</b>, then <b>measure 100 copies</b>. You get roughly 50 of each, but rarely exactly 50.</li>
+            <li>Press <b>H</b>, <b>Z</b>, <b>H</b>. Where does it end up? Now try <b>H</b>, <b>H</b>. Two Hadamards undo each other.</li>
+            <li>Use the θ slider to set 60°. Predict P(1) before you measure 100 copies. (Hint: sin²(θ/2).)</li>
+            <li>Press <b>H</b>, then <b>S</b> four times. The phase goes round once and P(0) never changes. Phase is invisible to this measurement, but not to the next gate.</li>
+      </ol>
+      <details class="physics" open>
+        <summary>the physics ✎</summary>
+        <p>A qubit's state can be written |ψ⟩ = cos(θ/2)|0⟩ + e<sup>iφ</sup> sin(θ/2)|1⟩. The two angles place it on a sphere, the Bloch sphere: |0⟩ at the top, |1⟩ at the bottom, and equal superpositions around the equator.</p>
+        <p class="eq">P(0) = cos²(θ/2),   P(1) = sin²(θ/2)</p>
+        <p>Every single-qubit gate is a rotation of this sphere. X is a half-turn about the x axis, Z about z, and H about the axis halfway between x and z. Measuring gives 0 or 1 at random with those probabilities and leaves the qubit at the pole it landed on.</p>
+        <p>"Measure 100 copies" prepares the same state 100 times and measures each copy once, which is what a real quantum computer does when it runs a circuit for many shots.</p>
+      </details>
+      </div>
+    </section>
+
+  </main>
+  <footer class="wrap foot">
+    <nav aria-label="Ajmal's other sites"><a href="https://ajmal.science/">ajmal.science</a> · <a href="https://research.ajmal.science/">research</a> · <a href="https://labs.ajmal.science/">labs</a></nav>
+    <p>Made by Ajmal Ibn Mohammed Althaf. Free to use in your classroom.</p>
+  </footer>
+</body>
+</html>

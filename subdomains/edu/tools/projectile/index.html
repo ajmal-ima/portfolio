@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projectile, with and without air · edu.ajmal.science</title>
+  <meta name="description" content="Launch at any angle and speed. Find the angle for the longest throw, then switch on air resistance." />
+  <meta name="author" content="Ajmal Ibn Mohammed Althaf" />
+  <link rel="canonical" href="https://edu.ajmal.science/tools/projectile/" />
+  <meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1f1e1c" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="edu.ajmal.science" />
+  <meta property="og:url" content="https://edu.ajmal.science/tools/projectile/" />
+  <meta property="og:title" content="Projectile, with and without air" />
+  <meta property="og:description" content="Launch at any angle and speed. Find the angle for the longest throw, then switch on air resistance." />
+  <meta property="og:image" content="https://ajmal.science/og-ajmal-2026.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/notebook.css" />
+  <style>:root { --hl: var(--c-yellow); --hl-ink: var(--c-ochre); }</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Projectile, with and without air",
+    "description": "Launch at any angle and speed. Find the angle for the longest throw, then switch on air resistance.",
+    "learningResourceType": "simulation",
+    "isAccessibleForFree": true,
+    "educationalLevel": "class 9 and up",
+    "url": "https://edu.ajmal.science/tools/projectile/",
+    "author": {
+      "@type": "Person",
+      "name": "Ajmal Ibn Mohammed Althaf",
+      "url": "https://ajmal.science/",
+      "sameAs": [
+        "https://www.linkedin.com/in/ajmal-ima",
+        "https://github.com/ajmal-ima",
+        "https://www.instagram.com/ajmalqx/"
+      ]
+    },
+    "inLanguage": "en-IN"
+  }
+  </script>
+  <script src="/js/kit.js" defer></script>
+  <script src="/tools/projectile/tool.js" defer></script>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <filter id="crayon" x="-5%" y="-20%" width="110%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" />
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" />
+    </filter>
+  </svg>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top-inner">
+      <span class="name-mark"><a class="home" href="https://ajmal.science/" style="text-decoration:none">ajmal<span class="dot">.</span>science</a> <span aria-hidden="true" style="color:var(--soft)">/</span> <a class="sub" href="/" style="text-decoration:none;color:inherit"><span class="sub">edu</span></a></span>
+      <nav aria-label="Sections">
+        <a href="/#tools" aria-current="page">Tools</a>
+        <a href="/#teachers">For teachers</a>
+        <a href="/#about">About</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="intro wrap narrow">
+      <p class="hello"><a href="/#tools" style="color:inherit">← all tools</a></p>
+      <h1><span>Projectile, with and without air</span></h1>
+      <p class="lede">Throw something. Change the angle and speed, then see what the air does to it.</p>
+    </section>
+    <section class="wrap">
+      <div class="tool">
+        <div>
+          <div class="stage"><canvas id="field" role="img" aria-label="The flight path of a launched ball over flat ground"></canvas></div>
+          <p class="readout" id="out" aria-live="polite"></p>
+        </div>
+        <div>
+          <div class="slider"><label for="ang">launch angle</label><output for="ang"></output><input id="ang" type="range" min="5" max="85" step="1" value="45" /></div>
+          <div class="slider"><label for="u">launch speed</label><output for="u"></output><input id="u" type="range" min="5" max="40" step="1" value="20" /></div>
+          <p class="row"><label class="hand"><input id="drag" type="checkbox" /> air resistance (a cricket ball)</label></p>
+          <div class="row">
+            <button class="btn hand" data-g="9.81" aria-pressed="true">Earth</button>
+            <button class="btn hand" data-g="1.62" aria-pressed="false">Moon</button>
+          </div>
+          <div class="row">
+            <button class="btn hand go" id="launch">launch</button>
+            <button class="btn hand" id="clear">clear</button>
+          </div>
+          <p class="aside" style="font-size:.95rem">Red: no air. Blue: with air.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="wrap narrow">
+      <h2><span>Try this</span></h2>
+      <ol class="try">
+            <li>Launch at 30° and at 60° with the same speed. They land in the same place. Why?</li>
+            <li>Find the angle that throws the farthest. Is it still 45° with air resistance on?</li>
+            <li>Double the speed. Does the range double? (It goes up four times without air.)</li>
+            <li>Throw on the Moon. Same speed, same angle: how much farther?</li>
+      </ol>
+      <details class="physics" open>
+        <summary>the physics ✎</summary>
+        <p>Without air, the horizontal velocity never changes and gravity only pulls down. The path is a parabola.</p>
+        <p class="eq">R = u² sin(2θ) / g,   H = u² sin²θ / 2g,   T = 2u sinθ / g</p>
+        <p>sin(2θ) is largest at 45°, and θ and 90° − θ give the same range. With air, a drag force proportional to v² acts against the motion. The path becomes lopsided, the ball comes down steeper than it went up, and the best angle drops below 45°.</p>
+      </details>
+      </div>
+    </section>
+
+  </main>
+  <footer class="wrap foot">
+    <nav aria-label="Ajmal's other sites"><a href="https://ajmal.science/">ajmal.science</a> · <a href="https://research.ajmal.science/">research</a> · <a href="https://labs.ajmal.science/">labs</a></nav>
+    <p>Made by Ajmal Ibn Mohammed Althaf. Free to use in your classroom.</p>
+  </footer>
+</body>
+</html>

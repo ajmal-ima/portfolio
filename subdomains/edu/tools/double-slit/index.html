@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Double slit, one particle at a time · edu.ajmal.science</title>
+  <meta name="description" content="Send particles through two slits and watch the pattern build up dot by dot. Then put a detector at the slits." />
+  <meta name="author" content="Ajmal Ibn Mohammed Althaf" />
+  <link rel="canonical" href="https://edu.ajmal.science/tools/double-slit/" />
+  <meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1f1e1c" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="edu.ajmal.science" />
+  <meta property="og:url" content="https://edu.ajmal.science/tools/double-slit/" />
+  <meta property="og:title" content="Double slit, one particle at a time" />
+  <meta property="og:description" content="Send particles through two slits and watch the pattern build up dot by dot. Then put a detector at the slits." />
+  <meta property="og:image" content="https://ajmal.science/og-ajmal-2026.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/notebook.css" />
+  <style>:root { --hl: var(--c-yellow); --hl-ink: var(--c-ochre); }</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Double slit, one particle at a time",
+    "description": "Send particles through two slits and watch the pattern build up dot by dot. Then put a detector at the slits.",
+    "learningResourceType": "simulation",
+    "isAccessibleForFree": true,
+    "educationalLevel": "class 12 and up",
+    "url": "https://edu.ajmal.science/tools/double-slit/",
+    "author": {
+      "@type": "Person",
+      "name": "Ajmal Ibn Mohammed Althaf",
+      "url": "https://ajmal.science/",
+      "sameAs": [
+        "https://www.linkedin.com/in/ajmal-ima",
+        "https://github.com/ajmal-ima",
+        "https://www.instagram.com/ajmalqx/"
+      ]
+    },
+    "inLanguage": "en-IN"
+  }
+  </script>
+  <script src="/js/kit.js" defer></script>
+  <script src="/tools/double-slit/tool.js" defer></script>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <filter id="crayon" x="-5%" y="-20%" width="110%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" />
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" />
+    </filter>
+  </svg>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top-inner">
+      <span class="name-mark"><a class="home" href="https://ajmal.science/" style="text-decoration:none">ajmal<span class="dot">.</span>science</a> <span aria-hidden="true" style="color:var(--soft)">/</span> <a class="sub" href="/" style="text-decoration:none;color:inherit"><span class="sub">edu</span></a></span>
+      <nav aria-label="Sections">
+        <a href="/#tools" aria-current="page">Tools</a>
+        <a href="/#teachers">For teachers</a>
+        <a href="/#about">About</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="intro wrap narrow">
+      <p class="hello"><a href="/#tools" style="color:inherit">← all tools</a></p>
+      <h1><span>Double slit, one particle at a time</span></h1>
+      <p class="lede">Particles go through two narrow slits, one at a time, and land on a screen. Watch what pattern they build.</p>
+    </section>
+    <section class="wrap">
+      <div class="tool">
+        <div>
+          <div class="stage"><canvas id="screen" role="img" aria-label="A detector screen where particles land, with a histogram of where they hit"></canvas></div>
+          <p class="readout"><span id="count" aria-live="polite">0 particles</span><br /><span id="fringe"></span></p>
+        </div>
+        <div>
+          <div class="row">
+            <button class="btn hand" data-fire="1">fire 1</button>
+            <button class="btn hand" data-fire="10">fire 10</button>
+            <button class="btn hand go" data-fire="1000">fire 1000</button>
+            <button class="btn hand" data-fire="clear">clear</button>
+          </div>
+          <div class="slider"><label for="lam">wavelength λ</label><output for="lam"></output><input id="lam" type="range" min="400" max="700" step="10" value="550" /></div>
+          <div class="slider"><label for="d">slit separation d</label><output for="d"></output><input id="d" type="range" min="0.05" max="0.6" step="0.01" value="0.25" /></div>
+          <div class="slider"><label for="a">slit width a</label><output for="a"></output><input id="a" type="range" min="0.01" max="0.12" step="0.005" value="0.05" /></div>
+          <div class="slider"><label for="L">distance to screen L</label><output for="L"></output><input id="L" type="range" min="0.5" max="3" step="0.1" value="1" /></div>
+          <p class="row"><label class="hand"><input id="curve" type="checkbox" checked /> show the predicted pattern</label></p>
+          <p class="row"><label class="hand"><input id="watch" type="checkbox" /> put a detector at the slits</label></p>
+        </div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="wrap narrow">
+      <h2><span>Try this</span></h2>
+      <ol class="try">
+            <li>Fire 1, then 10. One particle lands in one place. Nothing about a single dot looks like a wave.</li>
+            <li>Fire 1000. The stripes appear out of single dots. Each particle went through the setup alone.</li>
+            <li>Make the slits closer together (smaller d). Do the fringes spread out or squeeze in? Check with Δy = λL/d.</li>
+            <li>Change the colour from violet to red. Which colour spreads more?</li>
+            <li>Tick <b>put a detector at the slits</b> and fire 1000. Knowing which slit each particle used wipes out the stripes.</li>
+      </ol>
+      <details class="physics" open>
+        <summary>the physics ✎</summary>
+        <p>Each slit acts as a source. On a far screen the two paths differ by d·sinθ. Where that difference is a whole number of wavelengths, the waves add up; where it is a half number, they cancel.</p>
+        <p class="eq">I(θ) ∝ cos²(πd sinθ / λ) · [sin(β)/β]²,   β = πa sinθ / λ</p>
+        <p>The cos² part is the two-slit interference. The second part is the envelope from each slit having a width a. For small angles the bright fringes are Δy = λL/d apart.</p>
+        <p>The pattern is a probability: it tells you where each particle is likely to land, not where any one will. If you find out which slit it went through, the two paths no longer interfere and you get two overlapping single-slit humps. (Here that is drawn as the envelope alone, which is a simplification.)</p>
+      </details>
+      </div>
+    </section>
+
+  </main>
+  <footer class="wrap foot">
+    <nav aria-label="Ajmal's other sites"><a href="https://ajmal.science/">ajmal.science</a> · <a href="https://research.ajmal.science/">research</a> · <a href="https://labs.ajmal.science/">labs</a></nav>
+    <p>Made by Ajmal Ibn Mohammed Althaf. Free to use in your classroom.</p>
+  </footer>
+</body>
+</html>

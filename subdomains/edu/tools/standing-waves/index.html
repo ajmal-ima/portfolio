@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Standing waves on a string · edu.ajmal.science</title>
+  <meta name="description" content="Change the harmonic, tension and length. See the nodes, then hear the note the string would play." />
+  <meta name="author" content="Ajmal Ibn Mohammed Althaf" />
+  <link rel="canonical" href="https://edu.ajmal.science/tools/standing-waves/" />
+  <meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1f1e1c" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="edu.ajmal.science" />
+  <meta property="og:url" content="https://edu.ajmal.science/tools/standing-waves/" />
+  <meta property="og:title" content="Standing waves on a string" />
+  <meta property="og:description" content="Change the harmonic, tension and length. See the nodes, then hear the note the string would play." />
+  <meta property="og:image" content="https://ajmal.science/og-ajmal-2026.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/notebook.css" />
+  <style>:root { --hl: var(--c-yellow); --hl-ink: var(--c-ochre); }</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Standing waves on a string",
+    "description": "Change the harmonic, tension and length. See the nodes, then hear the note the string would play.",
+    "learningResourceType": "simulation",
+    "isAccessibleForFree": true,
+    "educationalLevel": "class 11 and up",
+    "url": "https://edu.ajmal.science/tools/standing-waves/",
+    "author": {
+      "@type": "Person",
+      "name": "Ajmal Ibn Mohammed Althaf",
+      "url": "https://ajmal.science/",
+      "sameAs": [
+        "https://www.linkedin.com/in/ajmal-ima",
+        "https://github.com/ajmal-ima",
+        "https://www.instagram.com/ajmalqx/"
+      ]
+    },
+    "inLanguage": "en-IN"
+  }
+  </script>
+  <script src="/js/kit.js" defer></script>
+  <script src="/tools/standing-waves/tool.js" defer></script>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <filter id="crayon" x="-5%" y="-20%" width="110%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" />
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" />
+    </filter>
+  </svg>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top-inner">
+      <span class="name-mark"><a class="home" href="https://ajmal.science/" style="text-decoration:none">ajmal<span class="dot">.</span>science</a> <span aria-hidden="true" style="color:var(--soft)">/</span> <a class="sub" href="/" style="text-decoration:none;color:inherit"><span class="sub">edu</span></a></span>
+      <nav aria-label="Sections">
+        <a href="/#tools" aria-current="page">Tools</a>
+        <a href="/#teachers">For teachers</a>
+        <a href="/#about">About</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="intro wrap narrow">
+      <p class="hello"><a href="/#tools" style="color:inherit">← all tools</a></p>
+      <h1><span>Standing waves on a string</span></h1>
+      <p class="lede">A string held at both ends can only vibrate in certain shapes. Pick one, change the string, and listen.</p>
+    </section>
+    <section class="wrap">
+      <div class="tool">
+        <div>
+          <div class="stage"><canvas id="string" role="img" aria-label="A string fixed at both ends vibrating as a standing wave"></canvas></div>
+          <p class="readout" id="out" aria-live="polite"></p>
+        </div>
+        <div>
+          <div class="slider"><label for="n">harmonic</label><output for="n"></output><input id="n" type="range" min="1" max="8" step="1" value="3" /></div>
+          <div class="slider"><label for="tension">tension T</label><output for="tension"></output><input id="tension" type="range" min="10" max="150" step="1" value="60" /></div>
+          <div class="slider"><label for="length">string length L</label><output for="length"></output><input id="length" type="range" min="0.3" max="1.2" step="0.01" value="0.65" /></div>
+          <p class="row"><label class="hand"><input id="parts" type="checkbox" /> show the two travelling waves</label></p>
+          <div class="row">
+            <button class="btn hand" id="pause">pause</button>
+            <button class="btn hand go" id="listen">listen</button>
+          </div>
+          <p class="aside" style="font-size:.95rem">The motion is slowed down so you can see it. The sound plays the real frequency.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="wrap narrow">
+      <h2><span>Try this</span></h2>
+      <ol class="try">
+            <li>Go from n = 1 to n = 2. Count the nodes. How does the frequency change?</li>
+            <li>Tick <b>show the two travelling waves</b>. Two waves going opposite ways add up to one that stands still.</li>
+            <li>Press listen, then increase the tension. This is what tuning a guitar or a veena does.</li>
+            <li>Halve the length. The note goes up by an octave: the frequency doubles. That's why frets work.</li>
+      </ol>
+      <details class="physics" open>
+        <summary>the physics ✎</summary>
+        <p>A wave on a string travels at v = √(T/μ), where T is the tension and μ the mass per metre (here 1.2 g/m, a light steel string). When it reflects off the fixed ends, the outgoing and returning waves overlap.</p>
+        <p class="eq">y(x, t) = 2A sin(kx) cos(ωt)</p>
+        <p>Only some wavelengths fit with a node at each end: L = nλ/2. So the string can only ring at f = n·v/2L. The lowest, n = 1, is the fundamental; the rest are its harmonics, and together they give an instrument its sound.</p>
+      </details>
+      </div>
+    </section>
+
+  </main>
+  <footer class="wrap foot">
+    <nav aria-label="Ajmal's other sites"><a href="https://ajmal.science/">ajmal.science</a> · <a href="https://research.ajmal.science/">research</a> · <a href="https://labs.ajmal.science/">labs</a></nav>
+    <p>Made by Ajmal Ibn Mohammed Althaf. Free to use in your classroom.</p>
+  </footer>
+</body>
+</html>
