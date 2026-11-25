@@ -1,6 +1,6 @@
 /* ajmal.science: the little lab.
    Interactive figures: a qubit, a spectrum, a double slit, a pendulum,
-   a gravitational-wave chirp, plus the Malayalam toggle.
+   a gravitational-wave chirp.
    Each piece is independent and does nothing if its markup is missing. */
 (function () {
   "use strict";
@@ -248,22 +248,4 @@
     });
   }
 
-  /* ================= 6. Malayalam toggle ================= */
-  var ml = document.querySelectorAll(".ml-toggle");
-  if (ml.length) {
-    var on = false;
-    try { on = localStorage.getItem("ajmal-ml") === "1"; } catch (e) {}
-    function apply() {
-      document.querySelectorAll("[data-lang-en]").forEach(function (el) { el.hidden = on; });
-      document.querySelectorAll("[data-lang-ml]").forEach(function (el) { el.hidden = !on; });
-      ml.forEach(function (b) { b.setAttribute("aria-pressed", on); b.textContent = on ? "English" : "മലയാളം"; });
-    }
-    ml.forEach(function (b) {
-      b.addEventListener("click", function () {
-        on = !on; try { localStorage.setItem("ajmal-ml", on ? "1" : "0"); } catch (e) {}
-        apply();
-      });
-    });
-    apply();
-  }
 })();

@@ -485,3 +485,5 @@ h3 { font-size: 1.05rem; font-weight: 600; margin: 1.8rem 0 .5rem; }
   .path li:not(:last-child)::after { right: -1.1rem; bottom: auto; top: 30%; transform: none; }
 }
 main { overflow-x: clip; }
+.ml-note { font-family: "Manjari", var(--hand); font-size: 1.35rem; color: var(--c-magenta); transform: rotate(-1.5deg); margin-top: .4rem; }
+.ml-note span { font-family: var(--hand); font-size: 1.1rem; color: var(--soft); }
