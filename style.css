@@ -376,3 +376,112 @@ h3 { font-size: 1.05rem; font-weight: 600; margin: 1.8rem 0 .5rem; }
 .stars-found.done svg { vertical-align: -4px; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --c-violet: #7f93e6; --c-cyan: #5aa3cf; } }
 :root[data-theme="dark"] { --c-violet: #7f93e6; --c-cyan: #5aa3cf; }
+
+/* =========================================================
+   v4: the little lab
+   ========================================================= */
+.ml, [lang="ml"] { font-family: "Manjari", "Noto Sans Malayalam", var(--text); }
+.lede.ml { font-size: 1.15rem; line-height: 1.8; }
+.ml-toggle {
+  font: 700 1.05rem/1.2 "Manjari", var(--text); color: var(--ink); background: transparent;
+  border: 1.5px dashed var(--ink); border-radius: 999px; padding: .15rem .8rem; margin-top: .6rem;
+}
+.ml-toggle[aria-pressed="true"] { font-family: var(--hand); font-size: 1.2rem; }
+
+/* "currently" sticky note */
+.currently {
+  margin-top: 1.2rem; max-width: 330px; padding: .8rem 1rem .9rem; position: relative;
+  background: color-mix(in srgb, var(--c-yellow) 38%, var(--paper));
+  box-shadow: 0 6px 14px rgba(0,0,0,.08); transform: rotate(-1.4deg);
+  font-family: var(--hand); font-size: 1.25rem; line-height: 1.3; color: var(--ink);
+}
+.currently::before { content: ""; position: absolute; top: -10px; left: 40%; width: 64px; height: 20px; background: color-mix(in srgb, var(--c-cyan) 45%, transparent); transform: rotate(4deg); filter: url(#crayon); }
+.currently p + p { margin-top: .15rem; }
+.currently b { color: var(--soft); font-weight: 500; margin-right: .3rem; }
+.cur-head { font-weight: 700; font-size: 1.4rem; }
+.cur-head span { font-weight: 500; color: var(--soft); font-size: 1.1rem; }
+
+/* lab figures */
+.lab { margin-top: 2.2rem; color: var(--ink); }
+.lab svg { display: block; width: 100%; max-width: 300px; height: auto; overflow: visible; touch-action: none; }
+#spectrum svg { max-width: 360px; }
+.lab-side, .lab figcaption { font-size: .98rem; margin-top: .4rem; }
+.lab-title, .lab figcaption > b { font-family: var(--hand); font-size: 1.3rem; }
+.lab-title b, .lab figcaption > b { color: var(--ink); }
+.lab-hint { display: block; font-family: var(--hand); font-size: 1.15rem; color: var(--soft); line-height: 1.3; margin-top: .4rem; }
+.gates { display: flex; flex-wrap: wrap; gap: .4rem; margin: .5rem 0; }
+.gates button, .ds-btns button, .gw-play {
+  font: 700 1.05rem/1 var(--text); min-width: 2.6rem; padding: .45rem .6rem; color: var(--ink);
+  background: var(--paper); border: 2px solid var(--ink);
+  border-radius: 9px 4px 8px 5px / 5px 8px 4px 9px; box-shadow: 2px 2px 0 var(--ink);
+}
+.gates button:active, .ds-btns button:active, .gw-play:active { transform: translate(2px, 2px); box-shadow: none; }
+.gates .measure { background: var(--c-yellow); color: #23211e; font-family: var(--hand); font-size: 1.2rem; }
+.gates .reset, .ds-btns button { font-family: var(--hand); font-size: 1.15rem; font-weight: 500; }
+.q-state { font-family: "Literata", serif; font-size: 1.15rem; }
+.q-probs, .q-counts, .ds-n, .p-out { font-family: var(--hand); font-size: 1.2rem; color: var(--soft); white-space: pre-wrap; }
+#qubit.flash svg { animation: collapse .35s ease; }
+@keyframes collapse { 40% { transform: scale(.94); filter: brightness(1.3); } }
+
+.peak { fill: var(--c-yellow); fill-opacity: .25; stroke: var(--c-magenta); stroke-width: 1.6; stroke-dasharray: 3 3; transition: fill-opacity .2s; }
+.peak:hover, .peak:focus { fill-opacity: .6; outline: none; }
+.sp-note { min-height: 4.8em; }
+
+.ds-box { border: 2px solid var(--ink); border-radius: 10px 4px 12px 6px / 6px 12px 4px 10px; background: color-mix(in srgb, var(--paper) 80%, var(--c-cyan) 6%); max-width: 520px; }
+.ds-box canvas { display: block; width: 100%; height: 190px; }
+.ds-btns { display: flex; flex-wrap: wrap; gap: .4rem; margin: .5rem 0 .2rem; }
+
+.p-bob { cursor: grab; }
+.p-bob:active { cursor: grabbing; }
+.p-bob:focus-visible { outline: none; stroke: var(--c-magenta); stroke-width: 3; }
+
+.gw-play { font-family: var(--hand); font-size: 1.15rem; padding: .2rem .7rem; }
+#chirp svg { max-width: 420px; }
+#chirp figcaption { font-size: .95rem; color: var(--soft); max-width: 560px; }
+
+/* plain-words margin notes */
+.margin-note summary { font-family: var(--hand); font-size: 1.15rem; color: var(--link); list-style: none; cursor: pointer; display: inline-block; }
+.margin-note summary::-webkit-details-marker { display: none; }
+.margin-note[open] summary { color: var(--soft); }
+.margin-note p {
+  margin-top: .4rem; padding: .6rem .8rem; font-size: .95rem; line-height: 1.55;
+  border-left: 3px solid var(--c-magenta); background: color-mix(in srgb, var(--paper) 88%, var(--c-yellow) 12%);
+}
+
+/* invite me to talk */
+.talk-card {
+  margin-top: 2rem; padding: 1rem 1.2rem 1.1rem; border: 2px solid var(--ink);
+  border-radius: 14px 5px 12px 7px / 7px 12px 5px 14px; box-shadow: 4px 4px 0 var(--c-yellow);
+}
+.talk-card h3 { margin-top: 0; font-family: var(--hand); font-size: 1.7rem; font-weight: 700; }
+.talk-card ul { margin: .5rem 0 .6rem 1.2rem; }
+.talk-card li { margin: .15rem 0; }
+
+@media (min-width: 760px) {
+  #qubit, #spectrum { display: grid; grid-template-columns: auto 1fr; gap: 1.6rem; align-items: center; }
+  #qubit svg { width: 220px; }
+  #spectrum svg { width: 340px; }
+}
+@media (max-width: 759px) { .f-atom { display: none; } }
+
+/* how I got here: three sketches */
+.path { list-style: none; display: grid; gap: 1.6rem; margin-top: 2rem; counter-reset: step; }
+.path li { position: relative; }
+.path svg { display: block; width: 100%; max-width: 240px; height: auto; color: var(--ink); }
+.path p { font-family: var(--hand); font-size: 1.25rem; line-height: 1.3; color: var(--soft); margin-top: .3rem; }
+.path p b { color: var(--ink); font-size: 1.45rem; }
+.path li:not(:last-child)::after {
+  content: "→"; position: absolute; font-family: var(--hand); font-size: 2.2rem; color: var(--c-magenta);
+  right: 8%; bottom: -1.6rem; transform: rotate(90deg);
+}
+.js .path.reveal .sketch g { stroke-dasharray: 900; stroke-dashoffset: 900; transition: stroke-dashoffset 2.4s ease; }
+.js .path.reveal.in .sketch g { stroke-dashoffset: 0; }
+.js .path.reveal li:nth-child(2) .sketch g { transition-delay: .6s; }
+.js .path.reveal li:nth-child(3) .sketch g { transition-delay: 1.2s; }
+.flame { animation: flicker .4s ease-in-out infinite alternate; transform-origin: 180px 46px; }
+@keyframes flicker { to { transform: scaleY(1.5); } }
+@media (min-width: 760px) {
+  .path { grid-template-columns: repeat(3, 1fr); max-width: none !important; }
+  .path li:not(:last-child)::after { right: -1.1rem; bottom: auto; top: 30%; transform: none; }
+}
+main { overflow-x: clip; }

@@ -37,7 +37,8 @@
     if (!reduce) {
       floats.forEach(function (f) {
         var s = parseFloat(f.getAttribute("data-speed")) || 0;
-        f.style.transform = "translate3d(0," + (y * s).toFixed(1) + "px,0) rotate(" + (y * s * 0.2).toFixed(1) + "deg)";
+        var rot = f.classList.contains("eq") ? 0 : y * s * 0.2;   // equations stay level
+        f.style.transform = "translate3d(0," + (y * s).toFixed(1) + "px,0) rotate(" + rot.toFixed(1) + "deg)";
       });
       if (tilt) tilt.style.setProperty("--tilt", Math.min(y / 40, 8).toFixed(2) + "deg");
     }
