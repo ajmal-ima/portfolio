@@ -5,7 +5,7 @@
   --paper: #fbf8f1;
   --grid: rgba(60, 90, 140, 0.07);
   --ink: #23211e;
-  --soft: #5d5953;
+  --soft: #4b4843;
   --rule: rgba(35, 33, 30, 0.18);
 
   /* coloured pencils rather than carnival crayons */
@@ -26,7 +26,7 @@
     --paper: #1f1e1c;
     --grid: rgba(255, 255, 255, 0.035);
     --ink: #ece8df;
-    --soft: #aaa49a;
+    --soft: #bfb9ae;
     --rule: rgba(236, 232, 223, 0.18);
     --link: #9fb0ff;
   }
@@ -35,7 +35,7 @@
   --paper: #1f1e1c;
   --grid: rgba(255, 255, 255, 0.035);
   --ink: #ece8df;
-  --soft: #aaa49a;
+  --soft: #bfb9ae;
   --rule: rgba(236, 232, 223, 0.18);
   --link: #9fb0ff;
 }
@@ -84,6 +84,15 @@ a:hover { text-decoration-thickness: 2px; }
 .top nav { display: flex; flex-wrap: wrap; gap: 0 .9rem; }
 .top nav a { font-family: var(--hand); font-size: 1.3rem; color: var(--soft); text-decoration: none; white-space: nowrap; }
 .top nav a:hover { color: var(--ink); }
+/* phones: keep all six links on one line */
+@media (max-width: 520px) {
+  .top nav { flex-wrap: nowrap; gap: 0 .55rem; }
+  .top nav a { font-size: 1.12rem; }
+}
+@media (max-width: 370px) {
+  .top nav { gap: 0 .32rem; }
+  .top nav a { font-size: .98rem; }
+}
 
 /* ---------- intro ---------- */
 
@@ -278,6 +287,7 @@ h3 { font-size: 1.05rem; font-weight: 600; margin: 1.8rem 0 .5rem; }
   background: color-mix(in srgb, var(--hl2, var(--c-yellow)) 70%, transparent); transform: rotate(-4deg);
   filter: url(#crayon);
 }
+.snap picture { display: block; background: color-mix(in srgb, var(--hl2, var(--c-yellow)) 14%, #f3efe6); } /* tint until the photo loads */
 .snap img { display: block; width: 100%; height: auto; max-height: 340px; object-fit: cover; }
 .snap p { font-family: var(--hand); font-size: 1.3rem; color: #3a3733; text-align: center; padding: .3rem 0 .1rem; }
 .snap .frame {
